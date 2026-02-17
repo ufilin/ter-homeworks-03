@@ -110,3 +110,7 @@ variable "metadata" {
     ssh-keys           = "ubuntu:"
   }
 }
+
+variable "vm_web_sec_group"
+  type = string
+  default = "${yandex_compute_instance.network_interface.security_group_ids.id}"
