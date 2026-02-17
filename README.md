@@ -16,7 +16,14 @@ HW
   
 ###Задание 2
   
-
+> Результат создания
+  
+<p align="center">
+  <img src="ter-03_2.1.png" width="800">
+</p>
+<p align="center">
+  <img src="ter-03_2.2.png" width="800">
+</p>
 
 ###Задание 3
 ###Задание 4
