@@ -30,3 +30,83 @@ variable "vpc_name" {
   default     = "develop"
   description = "VPC network&subnet name"
 }
+
+variable "vm_web_family" {
+  type        = string
+  default     = "ubuntu-2204-lts"
+  description = "https://cloud.yandex.ru/docs/compute/operations/images-with-versions"
+}
+
+variable "vm_web_platform-id" {
+    type        = string
+    default     = "standard-v1"
+    description = "https://cloud.yandex.ru/docs/compute/operations/images-with-versions"
+}
+
+variable "vm_web_should_be_preemptible" {
+    type        = bool
+    default     = true
+    description = "Should the VM be preemptible"
+}
+
+variable "vm_web_subnet_nat" {
+    type        = bool
+    default     = true
+    description = "Should the VM have NAT"
+}
+
+variable "vms_ssh_root_key" {
+  type        = string
+  description = "ssh-keygen -t ed25519"
+  sensitive = true
+}
+
+variable "project_name" {
+  type        = string
+  default     = "develop"
+  description = "Project name"
+}
+
+variable "environment" {
+  type        = string
+  default     = "arthur"
+  description = "Environment"
+}
+
+variable "allow_stopping_for_update" {
+  type = bool
+  default = true
+}
+
+variable "vms_resources" {
+  type = map(object(
+      {
+    cores         = number
+    memory        = number
+    core_fraction = number
+    hdd_size      = number
+    hdd_type      = string
+  }))
+
+  default = {
+    web = {
+      cores = 2
+      memory = 1
+      core_fraction = 5
+      hdd_size = 10
+      hdd_type = "network-hdd"
+    }
+  }
+}
+
+variable "metadata" {
+  type = object({
+    serial-port-enable = number
+    ssh-keys           = string
+  })
+
+  default = {
+    serial-port-enable = 1
+    ssh-keys           = "ubuntu:"
+  }
+}
