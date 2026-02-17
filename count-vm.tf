@@ -1,7 +1,8 @@
 data "yandex_compute_image" "ubuntu" {
   family = var.vm_web_family
 }
-resource "yandex_compute_instance" "platform" {
+resource "yandex_compute_instance" "web" {
+  depends_on = [ yandex_compute_instance.db ]
   count = 2
   name        = "web-${count.index+1}"
   platform_id = var.vm_web_platform-id
@@ -24,8 +25,10 @@ resource "yandex_compute_instance" "platform" {
   network_interface {
     subnet_id = yandex_vpc_subnet.develop.id
     nat       = var.vm_web_subnet_nat
-    security_group_ids = var.vm_web_sec_group
+    security_group_ids = [yandex_vpc_security_group.example.id]
   }
 
-  metadata = local.metadata
+  metadata = {
+    ssh-keys = "ubuntu:${file("~/.ssh/id_ed25519.pub")}"
+  }
 }

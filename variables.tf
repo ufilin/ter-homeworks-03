@@ -55,12 +55,12 @@ variable "vm_web_subnet_nat" {
     description = "Should the VM have NAT"
 }
 
-variable "vms_ssh_root_key" {
+/*variable "vms_ssh_root_key" {
   type        = string
   description = "ssh-keygen -t ed25519"
   sensitive = true
 }
-
+*/
 variable "project_name" {
   type        = string
   default     = "develop"
@@ -110,7 +110,32 @@ variable "metadata" {
     ssh-keys           = "ubuntu:"
   }
 }
+variable "each_vm" {
+  type = list(object({ 
+    vm_name     = string, 
+    cpu         = number, 
+    ram         = number, 
+    disk_volume = number,
+    disk_type   = string,
+    fraction     = number,
 
-variable "vm_web_sec_group"
-  type = string
-  default = "${yandex_compute_instance.network_interface.security_group_ids.id}"
+  }))
+  default = [
+    {
+      vm_name     = "main"
+      cpu         = 2
+      ram         = 2
+      disk_volume = 20
+      disk_type   = "network-hdd"
+      fraction    = 5
+    },
+    {
+      vm_name     = "replica"
+      cpu         = 4
+      ram         = 4
+      disk_volume = 10
+      disk_type   = "network-hdd"
+      fraction    = 20
+    }
+  ]
+}
