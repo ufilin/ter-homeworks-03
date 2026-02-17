@@ -27,7 +27,20 @@ HW
 
 ###Задание 3
   
-
-
+> Результат создания трёх дтсков и подключения их к созданной ВМ
+  
+<p align="center">
+  <img src="ter-03_3.1.png" width="800">
+</p>
+<p align="center">
+  <img src="ter-03_3.2.png" width="800">
+</p>
+<p align="center">
+  <img src="ter-03_3.3.png" width="800">
+</p>
+  
 
 ###Задание 4
+
+
+  
