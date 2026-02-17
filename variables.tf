@@ -139,3 +139,19 @@ variable "each_vm" {
     }
   ]
 }
+variable "vms_disks" {
+  type = map(object(
+      {
+    type          = string
+    size          = number
+    zone_id        = string
+  }))
+
+  default = {
+    my_disk = {
+      type = "network-hdd"
+      size = 1
+      zone_id = "ru-central1-a"
+    }
+  }
+}
