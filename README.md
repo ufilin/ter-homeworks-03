@@ -5,13 +5,13 @@ HW
 >>Группы безопасности и правила в них
   
 <p align="center">
-  <img src="ter-03_1.png" width="800">
+  <img src="ter-03_1.PNG" width="800">
 </p>
 <p align="center">
-  <img src="ter-03_1.1.png" width="800">
+  <img src="ter-03_1.1.PNG" width="800">
 </p>
 <p align="center">
-  <img src="ter-03_1.2.png" width="800">
+  <img src="ter-03_1.2.PNG" width="800">
 </p>
   
 ###Задание 2
