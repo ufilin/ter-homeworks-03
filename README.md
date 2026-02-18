@@ -39,8 +39,12 @@ HW
   <img src="ter-03_3.3.png" width="800">
 </p>
   
-
+  
 ###Задание 4
-
-
+  
+>> Результат задания, файл hosts.ini
+  
+<p align="center">
+  <img src="ter-03_4.png" width="800">
+</p>
   
