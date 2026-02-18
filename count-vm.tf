@@ -4,6 +4,7 @@ data "yandex_compute_image" "ubuntu" {
 resource "yandex_compute_instance" "web" {
   depends_on = [ yandex_compute_instance.db ]
   count = 2
+  hostname = "web-${count.index+1}"
   name        = "web-${count.index+1}"
   platform_id = var.vm_web_platform-id
   allow_stopping_for_update = var.allow_stopping_for_update

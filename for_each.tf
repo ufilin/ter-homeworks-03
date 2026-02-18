@@ -1,6 +1,6 @@
 resource "yandex_compute_instance" "db" {
   for_each = local.vm_map
-
+  hostname = each.value.vm_name
   name        = each.value.vm_name
   platform_id = var.vm_web_platform-id
   allow_stopping_for_update = var.allow_stopping_for_update

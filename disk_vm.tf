@@ -3,14 +3,15 @@ resource "yandex_compute_disk" "my_disk" {
   name     = "disk-${count.index}"
   type     = var.vms_disks["my_disk"]["type"]
   zone     = var.vms_disks["my_disk"]["zone_id"]
-  #image_id = data.yandex_compute_image.ubuntu.image_id
   size     = var.vms_disks["my_disk"]["size"]
   labels = {
-    environment = "dev"
+    environment = "external_disk"
   }
 }
 
 resource "yandex_compute_instance" "storage" {
+  depends_on = [ yandex_compute_disk.my_disk ]
+  hostname = "storage"
   name        = "storage"
   platform_id = var.vm_web_platform-id
   allow_stopping_for_update = var.allow_stopping_for_update
